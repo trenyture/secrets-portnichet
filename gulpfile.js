@@ -33,15 +33,15 @@ const proxyServer = 'pornichet.local';
  */
 gulp.task('cleanFonts', function () {
 	return gulp
-			.src(devFolder + 'fonts/**', {read: false})
-			.pipe(clean(assetFolder + 'fonts'));
+		.src(devFolder + 'fonts/**', {read: false})
+		.pipe(clean(assetFolder + 'fonts'));
 });
 
 /*
  * Compile Fonts from ressources to public
  */
 gulp.task('fonts', gulp.series('cleanFonts', function fonts() {
-	gulp.src(devFolder + 'fonts/**')
+	return gulp.src(devFolder + 'fonts/**')
 		.pipe(gulp.dest(assetFolder + 'fonts'))
 		.pipe(notify({
 			title: "Fonts Compiled",
@@ -62,15 +62,15 @@ gulp.task('fonts', gulp.series('cleanFonts', function fonts() {
  */
 gulp.task('cleanImages', function () {
 	return gulp
-			.src(devFolder + 'images/**', {read: false})
-			.pipe(clean(assetFolder + 'images'));
+		.src(devFolder + 'images/**', {read: false})
+		.pipe(clean(assetFolder + 'images'));
 });
 
 /*
  * Compile Images from ressources to public
  */
 gulp.task('images', gulp.series('cleanImages', function images() {
-	gulp.src(devFolder + 'images/**')
+	return gulp.src(devFolder + 'images/**')
 		.pipe(image())
 		.pipe(gulp.dest(assetFolder + 'images'))
 		.pipe(notify({
@@ -92,8 +92,8 @@ gulp.task('images', gulp.series('cleanImages', function images() {
  */
 gulp.task('cleanStyles', function () {
 	return gulp
-			.src(devFolder + 'sass/**', {read: false})
-			.pipe(clean(assetFolder + 'styles'));
+		.src(devFolder + 'sass/**', {read: false})
+		.pipe(clean(assetFolder + 'styles'));
 });
 
 /*
@@ -130,8 +130,8 @@ gulp.task('styles', gulp.series('cleanStyles', function styles() {
  */
 gulp.task('cleanScripts', function () {
 	return gulp
-			.src(devFolder + 'js/**', {read: false})
-			.pipe(clean(assetFolder + 'scripts'));
+		.src(devFolder + 'js/**', {read: false})
+		.pipe(clean(assetFolder + 'scripts'));
 });
 
 /*
@@ -189,4 +189,4 @@ gulp.task('serve', function() {
 /*
  * Making the default command in gulp to create all the server
  */
-gulp.task('default', gulp.series(gulp.parallel('scripts', 'styles', 'fonts', 'images', 'serve')));
+gulp.task('default', gulp.series(gulp.parallel('scripts', 'styles', 'fonts', 'images'), 'serve'));
