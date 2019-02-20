@@ -22,7 +22,7 @@ const browserSync = require('browser-sync').create();
 /*CONFIG*/
 const devFolder = "./dev/";
 const assetFolder = "./assets/";
-const proxyServer = 'http://pornichet.local/';
+const proxyServer = 'pornichet.local';
 
 ///////////////////////////////////////////
 //			ACTIONS ON FONTS			//
@@ -40,7 +40,7 @@ gulp.task('cleanFonts', function () {
 /*
  * Compile Fonts from ressources to public
  */
-gulp.task('fonts', function() {
+gulp.task('fonts', gulp.series('cleanFonts', function fonts() {
 	gulp.src(devFolder + 'fonts/**')
 		.pipe(gulp.dest(assetFolder + 'fonts'))
 		.pipe(notify({
@@ -51,7 +51,7 @@ gulp.task('fonts', function() {
 			}
 		}))
 		.pipe(browserSync.stream());
-});
+}));
 
 ///////////////////////////////////////////
 //			ACTIONS ON IMAGES			//
@@ -69,7 +69,7 @@ gulp.task('cleanImages', function () {
 /*
  * Compile Images from ressources to public
  */
-gulp.task('images', ['cleanImages'],  function() {
+gulp.task('images', gulp.series('cleanImages', function images() {
 	gulp.src(devFolder + 'images/**')
 		.pipe(image())
 		.pipe(gulp.dest(assetFolder + 'images'))
@@ -81,7 +81,7 @@ gulp.task('images', ['cleanImages'],  function() {
 			}
 		}))
 		.pipe(browserSync.stream());
-});
+}));
 
 ///////////////////////////////////////////
 //			ACTIONS ON STYLES			//
@@ -99,7 +99,7 @@ gulp.task('cleanStyles', function () {
 /*
  * minify and check syntax of all the styles (not vendors)
  */
-gulp.task('styles', ['cleanStyles'], function() {
+gulp.task('styles', gulp.series('cleanStyles', function styles() {
 	return gulp.src(devFolder + 'sass/**/*.scss')
 		.pipe(sourcemaps.init())
 		.pipe(sass({
@@ -119,7 +119,7 @@ gulp.task('styles', ['cleanStyles'], function() {
 			}
 		}))
 		.pipe(browserSync.stream());
-});
+}));
 
 ///////////////////////////////////////////
 //			ACTIONS ON SCRIPTS			//
@@ -137,7 +137,7 @@ gulp.task('cleanScripts', function () {
 /*
  * minify and check syntax of all the scripts (not vendors)
  */
-gulp.task('scripts', ['cleanScripts'], function() {
+gulp.task('scripts', gulp.series('cleanScripts', function scripts() {
 	return gulp.src(devFolder + 'js/**/*.js')
 		.pipe(jshint().on('error', gulpUtil.log))
 		.pipe(jshint.reporter('default'))
@@ -151,7 +151,7 @@ gulp.task('scripts', ['cleanScripts'], function() {
 			}
 		}))
 		.pipe(browserSync.stream());
-});
+}));
 
 ///////////////////////////////////////////
 //			SERVE THE APPLET			//
@@ -183,10 +183,10 @@ gulp.task('serve', function() {
 		gulp.run('images');
 	});
 
-	gulp.watch("./sources/**").on('change', browserSync.reload);
+	gulp.watch(devFolder + "**").on('change', browserSync.reload);
 });
 
 /*
  * Making the default command in gulp to create all the server
  */
-gulp.task('default', ['fonts', 'images', 'scripts', 'styles', 'serve']);
+gulp.task('default', gulp.series(gulp.parallel('scripts', 'styles', 'fonts', 'images', 'serve')));
