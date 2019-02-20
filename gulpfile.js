@@ -22,7 +22,7 @@ const browserSync = require('browser-sync').create();
 /*CONFIG*/
 const devFolder = "./dev/";
 const assetFolder = "./assets/";
-const proxyServer = 'http://localhost/secrets';
+const proxyServer = 'http://pornichet.local/';
 
 ///////////////////////////////////////////
 //			ACTIONS ON FONTS			//
@@ -40,7 +40,7 @@ gulp.task('cleanFonts', function () {
 /*
  * Compile Fonts from ressources to public
  */
-gulp.task('fonts', ['cleanFonts'], function() {
+gulp.task('fonts', function() {
 	gulp.src(devFolder + 'fonts/**')
 		.pipe(gulp.dest(assetFolder + 'fonts'))
 		.pipe(notify({

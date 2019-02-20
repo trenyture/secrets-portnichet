@@ -8,6 +8,8 @@
 * [GulpJS](https://gulpjs.com/)
 * [Sass](https://sass-lang.com/install)
 
+> [https://codeburst.io/switching-to-gulp-4-0-271ae63530c0](https://codeburst.io/switching-to-gulp-4-0-271ae63530c0)
+
 ## Wordpress Plugins
 
 * [Yoast SEO](https://wordpress.org/plugins/wordpress-seo/)

@@ -1,0 +1,14 @@
+@import 'normalize/variables';
+@import 'normalize/vertical-rhythm';
+@import 'normalize/normalize-mixin';
+
+@import 'variables';
+
+html{
+	font-size: 62.5%;
+	body{
+		font-size: 1.4rem;
+	}
+}
+
+@import 'parts/home';
