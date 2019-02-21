@@ -167,21 +167,13 @@ gulp.task('serve', function() {
 		open: 'external'
 	});
 
-	gulp.watch(devFolder + 'js/**', function(){
-		gulp.run('scripts');
-	});
+	gulp.watch(devFolder + 'js/**', gulp.series('scripts'));
 
-	gulp.watch(devFolder + 'sass/**', function(){
-		gulp.run('styles');
-	});
+	gulp.watch(devFolder + 'sass/**', gulp.series('styles'));
 
-	gulp.watch(devFolder + 'fonts/**', function(){
-		gulp.run('fonts');
-	});
+	gulp.watch(devFolder + 'fonts/**', gulp.series('fonts'));
 
-	gulp.watch(devFolder + 'images/**', function(){
-		gulp.run('images');
-	});
+	gulp.watch(devFolder + 'images/**', gulp.series('images'));
 
 	gulp.watch(devFolder + "**").on('change', browserSync.reload);
 });
