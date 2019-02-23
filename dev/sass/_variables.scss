@@ -9,3 +9,23 @@ $black : #000000;
 $yellow: #fff200;
 
 /* FONTS */
+@font-face {
+	font-family: "Mukta-Light";
+	src: url("../fonts/Mukta-Light.woff2") format("woff2"),
+ 		url("../fonts/Mukta-Light.woff") format("woff"),
+ 		url("../fonts/Mukta-Light.ttf") format("ttf");
+}
+
+@font-face {
+	font-family: "Mukta-Regular";
+	src: url("../fonts/Mukta-Regular.woff2") format("woff2"),
+ 		url("../fonts/Mukta-Regular.woff") format("woff"),
+ 		url("../fonts/Mukta-Regular.ttf") format("ttf");
+}
+
+@font-face {
+	font-family: "Mukta-Bold";
+	src: url("../fonts/Mukta-Bold.woff2") format("woff2"),
+ 		url("../fonts/Mukta-Bold.woff") format("woff"),
+ 		url("../fonts/Mukta-Bold.ttf") format("ttf");
+}

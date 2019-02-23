@@ -11,7 +11,37 @@ html{
 		background: url(../images/fond.png) no-repeat;
 		background-size: cover;
 		background-position: center;
+		color: $white;
+		font-family: 'Mukta-Regular', Arial, sans-serif;
+		font-size: 1.6rem;
+		line-height: 1.5;
+		margin: 0;
+
+		a{
+			color:$yellow;
+			text-decoration: none;
+
+			&:hover{
+				color:darken($yellow, 20);
+			}
+		}
+
+		h1, h2, h3, h4, h5, h6 {
+			font-family: 'Mukta-Light', Arial, sans-serif;
+		}
+
+		b, strong{
+			font-family: 'Mukta-Bold', Arial, sans-serif;
+		}
+
+		div#wrapper {
+			width: 100%;
+			max-width: $desktop;
+			margin: 0 auto;
+		}
 	}
 }
 
+@import 'parts/topmenu';
 @import 'parts/home';
+@import 'parts/pages';
