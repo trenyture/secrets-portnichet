@@ -6,16 +6,24 @@
 
 html{
 	font-size: 62.5%;
-	body{
+	min-height: 100%;
+
+	body,
+	body.custom-background{
 		font-size: 1.4rem;
-		background: url(../images/fond.png) no-repeat;
+		background-image: url(../images/fond.png);
+		background-repeat: no-repeat;
 		background-size: cover;
-		background-position: center;
+		background-position: top center;
 		color: $white;
 		font-family: 'Mukta-Regular', Arial, sans-serif;
 		font-size: 1.6rem;
 		line-height: 1.5;
 		margin: 0;
+
+		& * {
+			box-sizing: border-box;
+		}
 
 		a{
 			color:$yellow;
@@ -39,9 +47,11 @@ html{
 			max-width: $desktop;
 			margin: 0 auto;
 		}
+	
+		@import 'parts/topmenu';
+		@import 'parts/footer';
 	}
 }
 
-@import 'parts/topmenu';
 @import 'parts/home';
 @import 'parts/pages';

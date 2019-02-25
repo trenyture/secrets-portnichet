@@ -1,9 +1,10 @@
-<?php
-	
+<?php 
+	$custom_logo_id = get_theme_mod( 'custom_logo' );
+	$image = wp_get_attachment_image_src( $custom_logo_id , 'full' );
+	$logo = $image[0];
 ?>
-
 <nav>
-	<h1><?php echo get_bloginfo('name'); ?></h1>
+	<h1<?php if ($logo && strlen(trim($logo))>0): ?>style="background-image: url(<?php echo $logo; ?>)"<?php endif ?>><?php echo get_bloginfo('name'); ?></h1>
 	<?php if ( has_nav_menu( 'main-menu' ) ) : ?>
 	<ul>
 		<?php
