@@ -17,9 +17,21 @@
 				<?php while ($query->have_posts() ) : $query->the_post(); 
 					if($frontPageId != get_the_ID()) {?>
 					--><li>
+
 							<a href="<?php the_permalink(); ?>" <?php if (has_post_thumbnail()) {?>style="background-image: url(<?php echo get_the_post_thumbnail_url(); ?>)" <?php } ?>>
-								<h2><?php the_title(); ?></h2>
-								<p><?php the_excerpt(); ?></p>
+								<h2><?php
+									$title = get_the_title();
+									$array = preg_split("@(?<=\s)@", $title);
+									$array[count($array) - 1] = '<b>' . $array[count($array) - 1] . '</b>';
+									echo implode('', $array);
+								?></h2>
+								<p><?php
+									$message = get_the_excerpt();
+									if (strlen($message) > 300) {
+										$message =  substr($message, 0, 297) . '…';
+									}
+									echo $message;
+								?></p>
 							</a>
 					</li><!--
 				<?php } endwhile; ?>

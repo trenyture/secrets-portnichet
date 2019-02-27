@@ -36,13 +36,15 @@ html{
 
 		h1, h2, h3, h4, h5, h6 {
 			font-family: 'Mukta-Light', Arial, sans-serif;
+			font-weight: 200;
 		}
 
 		b, strong{
 			font-family: 'Mukta-Bold', Arial, sans-serif;
+			font-weight: normal;
 		}
 
-		div#wrapper {
+		div.wrapper {
 			width: 100%;
 			max-width: $desktop;
 			margin: 0 auto;
