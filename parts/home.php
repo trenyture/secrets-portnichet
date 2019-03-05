@@ -21,7 +21,7 @@
 							<a href="<?php the_permalink(); ?>" <?php if (has_post_thumbnail()) {?>style="background-image: url(<?php echo get_the_post_thumbnail_url(); ?>)" <?php } ?>>
 								<h2><?php
 									$title = get_the_title();
-									$array = preg_split("@(?<=\s)@", $title);
+									$array = preg_split("@(?<=[^A-Za-z0-9-]+)@", $title);
 									$array[count($array) - 1] = '<b>' . $array[count($array) - 1] . '</b>';
 									echo implode('', $array);
 								?></h2>

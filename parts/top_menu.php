@@ -15,7 +15,7 @@
 					<li>
 						<a<?php if(get_queried_object_id() == $li->object_id) { echo ' class="current"'; }?> href="<?php echo $li->url; ?>"><?php
 							$title = $li->title;
-							$array = preg_split("@(?<=\s)@", $title);
+							$array = preg_split("@(?<=[^A-Za-z0-9-]+)@", $title);
 							$array[count($array) - 1] = '<b>' . $array[count($array) - 1] . '</b>';
 							echo implode('', $array);
 						?></a>
