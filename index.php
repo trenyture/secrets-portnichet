@@ -29,7 +29,7 @@
 								<div>
 									<h2><?php 
 										$title = get_the_title();
-										$array = preg_split("@(?<=\s)@", $title);
+										$array = preg_split("@(?<=[^A-Za-z0-9-éèê])@", $title);
 										$array[count($array) - 1] = '<b>' . $array[count($array) - 1] . '</b>';
 										echo implode('', $array);
 									?></h2>

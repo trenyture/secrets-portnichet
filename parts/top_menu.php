@@ -5,7 +5,10 @@
 ?>
 <nav id="top-menu">
 	<div class="wrapper">
-		<h1<?php if ($logo && strlen(trim($logo))>0): ?>style="background-image: url(<?php echo $logo; ?>)"<?php endif ?>><?php echo get_bloginfo('name'); ?></h1>
+		<h1>
+			<a href="<?php echo get_bloginfo('url'); ?>" <?php if ($logo && strlen(trim($logo))>0): ?>style="background-image: url(<?php echo $logo; ?>)"<?php endif ?>><?php echo get_bloginfo('name'); ?>
+			</a>
+		</h1>
 		<?php if ( has_nav_menu( 'main-menu' ) ) : ?>
 			<ul id="main-menu">
 				<?php 
@@ -15,7 +18,7 @@
 					<li>
 						<a<?php if(get_queried_object_id() == $li->object_id) { echo ' class="current"'; }?> href="<?php echo $li->url; ?>"><?php
 							$title = $li->title;
-							$array = preg_split("@(?<=[^A-Za-z0-9-]+)@", $title);
+							$array = preg_split("@(?<=[^A-Za-z0-9-éèê])@", $title);
 							$array[count($array) - 1] = '<b>' . $array[count($array) - 1] . '</b>';
 							echo implode('', $array);
 						?></a>

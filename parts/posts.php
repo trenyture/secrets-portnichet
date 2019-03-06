@@ -7,11 +7,11 @@
 	<div>
 		<h2><?php 
 			$title = apply_filters( 'get_the_title', get_post( get_option( 'page_for_posts' ) )->post_title );
-			$array = preg_split("@(?<=\s)@", $title);
+			$array = preg_split("@(?<=[^A-Za-z0-9-éèê])@", $title);
 			$array[count($array) - 1] = '<b>' . $array[count($array) - 1] . '</b>';
 			echo implode('', $array);
 		?></h2>
-		<blockquote><?php echo apply_filters( 'the_excerpt', get_post( get_option( 'page_for_posts' ) )->post_excerpt ); ?></blockquote>
+		<blockquote><?php $thePost = get_post( get_option( 'page_for_posts' ) ); echo apply_filters('the_excerpt', $thePost->post_excerpt, $thePost ); ?></blockquote>
 	</div>
 </header>
 <?php
@@ -35,7 +35,7 @@
 						<a href="<?php the_permalink(); ?>" <?php if (has_post_thumbnail()) {?>style="background-image: url(<?php echo get_the_post_thumbnail_url(); ?>)" <?php } ?>>
 							<h3><?php
 								$title = get_the_title();
-								$array = preg_split("@(?<=\s)@", $title);
+								$array = preg_split("@(?<=[^A-Za-z0-9-éèê])@", $title);
 								$array[count($array) - 1] = '<b>' . $array[count($array) - 1] . '</b>';
 								echo implode('', $array);
 							?></h3>
