@@ -12,8 +12,12 @@
 			border-left: 1.5rem solid $yellow;
 
 			h2{
-				font-size: 8.6rem;
+				font-size: 5rem;
 				margin:0;
+
+				@media all and (min-width: $tablet) {
+					font-size: 8.6rem;
+				}
 			}
 			blockquote{
 				margin: 5rem 0 0 0;

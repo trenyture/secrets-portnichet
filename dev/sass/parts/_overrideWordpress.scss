@@ -1,0 +1,6 @@
+.wp-block-gallery .blocks-gallery-image, 
+.wp-block-gallery .blocks-gallery-item {
+	@media all and (max-width: $tablet) {
+		width:100%;
+	}
+}

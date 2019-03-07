@@ -33,6 +33,10 @@ html{
 			&:hover{
 				color:darken($yellow, 20);
 			}
+			&:focus{
+				outline: none;
+			}
+
 		}
 
 		h1, h2, h3, h4, h5, h6 {
@@ -50,12 +54,19 @@ html{
 			max-width: $desktop;
 			margin: 0 auto;
 		}
+
+		button:focus {
+			outline: none;
+		}
 	
 		@import 'parts/topmenu';
 		@import 'parts/footer';
 	}
 }
 
+@import 'parts/overrideWordpress';
+
 @import 'parts/home';
 @import 'parts/pages';
 @import 'parts/posts';
+@import 'parts/forms';

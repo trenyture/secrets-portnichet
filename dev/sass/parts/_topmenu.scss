@@ -63,14 +63,17 @@ nav#top-menu{
 				width: auto;
 			}
 
-			li{
-				list-style: none;
-				text-align: center;
-				background: $black;
+			& > li{
+				&, li{
+					list-style: none;
+					text-align: center;
+					background: $black;
+				}
 				
 				@media all and (min-width: $tablet) {
 					margin-left: 5rem;
 				}
+
 				a{
 					display: block;
 					width: 100%;
@@ -113,6 +116,29 @@ nav#top-menu{
 					&:hover,
 					&.current{
 						opacity: 1;
+					}
+				}
+				
+				&#langs{
+					@media all and (min-width: $tablet) {
+						margin-left: 2.5rem;
+					}
+
+					ul{
+						padding: 0;
+
+						li{
+							img{
+								width:5rem;
+								height:2.5rem;
+								object-fit:cover;
+								
+								@media all and (min-width: $tablet) {
+									width:3rem;
+									height:1.5rem;
+								}								
+							}
+						}
 					}
 				}
 			}

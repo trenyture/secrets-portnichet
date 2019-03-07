@@ -5,7 +5,14 @@
 	$frontPageId = get_the_ID();
 ?>
 <main id="homepage">
-	<h1 <?php if ($logo && strlen(trim($logo))>0): ?>style="background-image: url(<?php echo $logo; ?>)"<?php endif ?>><?php echo get_bloginfo('name'); ?></h1>
+	<h1 <?php if ($logo && strlen(trim($logo))>0): ?>style="background-image: url(<?php echo $logo; ?>)"<?php endif ?>><?php echo get_bloginfo('name'); ?>
+	</h1>
+	<ul id="langs">
+		<?php pll_the_languages(array(
+			"show_names" => 0,
+			"show_flags" => 1,
+		));?>
+	</ul>
 	<?php $query = new WP_Query(array(
 		'post_type' => 'page',
 		'orderby'   => 'menu_order',

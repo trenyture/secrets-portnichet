@@ -12,7 +12,9 @@
 		<?php if ( has_nav_menu( 'main-menu' ) ) : ?>
 			<ul id="main-menu">
 				<?php 
-					$items = wp_get_nav_menu_items('main-menu');
+					$locations = get_nav_menu_locations();
+					$menu = wp_get_nav_menu_object( $locations['main-menu'] );
+					$items = wp_get_nav_menu_items($menu->term_id);
 					foreach ($items as $li) { 
 				?>			
 					<li>
@@ -24,6 +26,17 @@
 						?></a>
 					</li>
 				<?php } ?>
+				<!-- LANGUES -->
+				<li id="langs">
+					<ul>
+						<?php pll_the_languages(array(
+							"show_names" => 0,
+							"show_flags" => 1,
+							"hide_current" => 1,
+						));?>		
+					</ul>
+				</li>
+				<!-- /LANGUES -->
 			</ul>
 			<a href="#" id="burger">&#9776;</a>
 		<?php endif; ?>	
