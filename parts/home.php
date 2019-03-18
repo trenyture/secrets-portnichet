@@ -5,14 +5,16 @@
 	$frontPageId = get_the_ID();
 ?>
 <main id="homepage">
-	<h1 <?php if ($logo && strlen(trim($logo))>0): ?>style="background-image: url(<?php echo $logo; ?>)"<?php endif ?>><?php echo get_bloginfo('name'); ?>
-	</h1>
-	<ul id="langs">
-		<?php pll_the_languages(array(
-			"show_names" => 0,
-			"show_flags" => 1,
-		));?>
-	</ul>
+	<header>
+		<h1 <?php if ($logo && strlen(trim($logo))>0): ?>style="background-image: url(<?php echo $logo; ?>)"<?php endif ?>><?php echo get_bloginfo('name'); ?>
+		</h1>
+		<ul id="langs">
+			<?php pll_the_languages(array(
+				"show_names" => 0,
+				"show_flags" => 1,
+			));?>
+		</ul>
+	</header>
 	<?php $query = new WP_Query(array(
 		'post_type' => 'page',
 		'orderby'   => 'menu_order',
@@ -26,19 +28,21 @@
 					--><li>
 
 							<a href="<?php the_permalink(); ?>" <?php if (has_post_thumbnail()) {?>style="background-image: url(<?php echo get_the_post_thumbnail_url(); ?>)" <?php } ?>>
-								<h2><?php
-									$title = get_the_title();
-									$array = preg_split("@(?<=[^A-Za-z0-9-éèê])@", $title);
-									$array[count($array) - 1] = '<b>' . $array[count($array) - 1] . '</b>';
-									echo implode('', $array);
-								?></h2>
-								<p><?php
-									$message = get_the_excerpt();
-									if (strlen($message) > 300) {
-										$message =  substr($message, 0, 297) . '…';
-									}
-									echo $message;
-								?></p>
+								<div>
+									<h2><?php
+										$title = get_the_title();
+										$array = preg_split("@(?<=[^A-Za-z0-9-éèê])@", $title);
+										$array[count($array) - 1] = '<b>' . $array[count($array) - 1] . '</b>';
+										echo implode('', $array);
+									?></h2>
+									<p><?php
+										$message = get_the_excerpt();
+										if (strlen($message) > 300) {
+											$message =  substr($message, 0, 297) . '…';
+										}
+										echo $message;
+									?></p>
+								</div>
 							</a>
 					</li><!--
 				<?php } endwhile; ?>

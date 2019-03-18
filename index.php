@@ -25,7 +25,16 @@
 						<?php if (is_home()) {
 							get_template_part('parts/posts');
 						} elseif ( have_posts() ) { while ( have_posts() ) : the_post(); ?>
-							<header <?php if (has_post_thumbnail()) {?> style="background-image: url(<?php echo get_the_post_thumbnail_url(); ?>)" <?php } ?>>
+							<header
+								<?php 
+									if (has_post_thumbnail()) {
+										$imageUrl = MultiPostThumbnails::get_post_thumbnail_url(get_post_type(), 'rectangular-image');
+										if(strlen(trim($imageUrl)) < 1) {
+											$imageUrl = get_the_post_thumbnail_url();
+										}
+										echo ' style="background-image: url('.$imageUrl.')" ';
+									} ?>
+							>
 								<div>
 									<h2><?php 
 										$title = get_the_title();
