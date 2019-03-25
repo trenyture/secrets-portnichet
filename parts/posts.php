@@ -20,7 +20,6 @@
 			$array[count($array) - 1] = '<b>' . $array[count($array) - 1] . '</b>';
 			echo implode('', $array);
 		?></h2>
-		<blockquote><?php $thePost = get_post( get_option( 'page_for_posts' ) ); echo apply_filters('the_excerpt', $thePost->post_excerpt, $thePost ); ?></blockquote>
 	</div>
 </header>
 <?php

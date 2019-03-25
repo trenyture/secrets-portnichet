@@ -42,7 +42,6 @@
 										$array[count($array) - 1] = '<b>' . $array[count($array) - 1] . '</b>';
 										echo implode('', $array);
 									?></h2>
-									<blockquote><?php the_excerpt(); ?></blockquote>
 								</div>
 							</header>
 							<main>

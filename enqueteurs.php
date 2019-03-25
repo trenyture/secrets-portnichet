@@ -40,7 +40,6 @@
 										$array[count($array) - 1] = '<b>' . $array[count($array) - 1] . '</b>';
 										echo implode('', $array);
 									?></h2>
-									<blockquote><?php the_excerpt(); ?></blockquote>
 								</div>
 							</header>
 							<main>
@@ -80,8 +79,7 @@
 								--></ul>
 							</aside>
 						<?php endif;
-						wp_reset_postdata(); ?>
-					?>						
+					wp_reset_postdata(); ?>			
 				</section>
 			</div>
 		</main>

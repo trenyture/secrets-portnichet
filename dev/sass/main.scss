@@ -15,6 +15,7 @@ html{
 		background-repeat: no-repeat;
 		background-size: cover;
 		background-position: top center;
+		background-attachment: fixed;
 		color: $white;
 		font-family: 'Mukta-Regular', Arial, sans-serif;
 		font-size: 1.6rem;
@@ -70,3 +71,12 @@ html{
 @import 'parts/pages';
 @import 'parts/posts';
 @import 'parts/forms';
+
+
+html body.page-template{
+	background-image: url(../images/fond1.png);
+}
+
+html body.page-id-21{
+	background-image: url(../images/fond2.png);
+}

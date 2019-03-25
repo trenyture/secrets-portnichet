@@ -1,18 +1,19 @@
 nav#top-menu{
 	background: $white;
 	@media all and (min-width: $tablet) {
-		background: transparent;
+		background: rgba(0,0,0,0.4);
 	}
 	
 	div.wrapper{
 		display: flex;
 		justify-content: space-between;
+		align-items: center;
 		position: relative;
 
 		h1{
 			display: block;
 			width: 13rem;
-			height: 4rem;
+			height: 5rem;
 			margin: 0 0.5rem 0 0;
 			position: relative;
 			
