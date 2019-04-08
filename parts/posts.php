@@ -3,24 +3,13 @@
 	$post = get_post( get_option( 'page_for_posts' ) );
 ?>
 
-<header
-	<?php 
-		if (has_post_thumbnail($pageId)) {
-			$imageUrl = MultiPostThumbnails::get_post_thumbnail_url(get_post_type(), 'rectangular-image', $pageId);
-			if(strlen(trim($imageUrl)) < 1) {
-				$imageUrl = get_the_post_thumbnail_url($pageId);
-			}
-			echo ' style="background-image: url('.$imageUrl.')" ';
-		} ?>
->
-	<div>
-		<h2><?php 
-			$title = apply_filters( 'get_the_title', get_post( get_option( 'page_for_posts' ) )->post_title );
-			$array = preg_split("@(?<=[^A-Za-z0-9-éèê])@", $title);
-			$array[count($array) - 1] = '<b>' . $array[count($array) - 1] . '</b>';
-			echo implode('', $array);
-		?></h2>
-	</div>
+<header>
+	<h2><?php 
+		$title = apply_filters( 'get_the_title', get_post( get_option( 'page_for_posts' ) )->post_title );
+		$array = preg_split("@(?<=[^A-Za-z0-9-éèê])@", $title);
+		$array[count($array) - 1] = '<b>' . $array[count($array) - 1] . '</b>';
+		echo implode('', $array);
+	?></h2>
 </header>
 <?php
 	$content = apply_filters( 'get_the_content', get_post( get_option( 'page_for_posts' ) )->post_content );
@@ -31,6 +20,7 @@
 
 <?php $query = new WP_Query(array(
 		'post_type' => 'post',
+		'category_name' => 'enquete,investigation',
 		'orderby'   => 'menu_order',
 		'order' => 'ASC'
 	));
@@ -42,12 +32,7 @@
 					--><li>
 						<a href="<?php the_permalink(); ?>" <?php if (has_post_thumbnail()) {?>style="background-image: url(<?php echo get_the_post_thumbnail_url(); ?>)" <?php } ?>>
 							<div>
-								<h3><?php
-									$title = get_the_title();
-									$array = preg_split("@(?<=[^A-Za-z0-9-éèê])@", $title);
-									$array[count($array) - 1] = '<b>' . $array[count($array) - 1] . '</b>';
-									echo implode('', $array);
-								?></h3>
+								<h3><?php the_title(); ?></h3>
 								<p><?php
 									$message = get_the_excerpt();
 									if (strlen($message) > 300) {

@@ -25,24 +25,13 @@
 						<?php if (is_home()) {
 							get_template_part('parts/posts');
 						} elseif ( have_posts() ) { while ( have_posts() ) : the_post(); ?>
-							<header
-								<?php 
-									if (has_post_thumbnail()) {
-										$imageUrl = MultiPostThumbnails::get_post_thumbnail_url(get_post_type(), 'rectangular-image');
-										if(strlen(trim($imageUrl)) < 1) {
-											$imageUrl = get_the_post_thumbnail_url();
-										}
-										echo ' style="background-image: url('.$imageUrl.')" ';
-									} ?>
-							>
-								<div>
-									<h2><?php 
-										$title = get_the_title();
-										$array = preg_split("@(?<=[^A-Za-z0-9-éèê])@", $title);
-										$array[count($array) - 1] = '<b>' . $array[count($array) - 1] . '</b>';
-										echo implode('', $array);
-									?></h2>
-								</div>
+							<header>
+								<h2><?php 
+									$title = get_the_title();
+									$array = preg_split("@(?<=[^A-Za-z0-9-éèê])@", $title);
+									$array[count($array) - 1] = '<b>' . $array[count($array) - 1] . '</b>';
+									echo implode('', $array);
+								?></h2>
 							</header>
 							<main>
 								<?php echo the_content(); ?>													

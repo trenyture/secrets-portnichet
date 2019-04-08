@@ -29,3 +29,17 @@ $yellow: #004c7e;
  		url("../fonts/Mukta-Bold.woff") format("woff"),
  		url("../fonts/Mukta-Bold.ttf") format("ttf");
 }
+
+@font-face {
+	font-family: "Aliens";
+	src: url("../fonts/Aliens.woff2") format("woff2"),
+ 		url("../fonts/Aliens.woff") format("woff"),
+ 		url("../fonts/Aliens.ttf") format("ttf");
+}
+
+@font-face {
+	font-family: "TopsyKret";
+	src: url("../fonts/TopsyKret.woff2") format("woff2"),
+ 		url("../fonts/TopsyKret.woff") format("woff"),
+ 		url("../fonts/TopsyKret.ttf") format("ttf");
+}

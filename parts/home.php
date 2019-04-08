@@ -15,29 +15,30 @@
 			));?>
 		</ul>
 	</header>
-	<?php $query = new WP_Query(array(
-		'post_type' => 'page',
-		'orderby'   => 'menu_order',
-		'order' => 'ASC'
-	));
-	if($query->have_posts()) : ?>
+	<?php
+		$content = apply_filters( 'get_the_content', get_post( get_option( 'page_on_front' ) )->post_content );
+		if(strlen(trim($content)) > 0) {
+			echo "<main>" . $content . "</main>";
+		}
+	?>
+	<?php 
+		$locations = get_nav_menu_locations();
+		$menu = wp_get_nav_menu_object( $locations['main-menu'] );
+		$items = wp_get_nav_menu_items($menu->term_id);
+		if(count($items) > 0) {
+	?>
 		<nav>
-			<ul><!--
-				<?php while ($query->have_posts() ) : $query->the_post(); 
-					if($frontPageId != get_the_ID()) {?>
-					--><li>
-						<a href="<?php the_permalink(); ?>">
-							<?php
-								$title = get_the_title();
-								$array = preg_split("@(?<=[^A-Za-z0-9-éèê])@", $title);
-								$array[count($array) - 1] = '<b>' . $array[count($array) - 1] . '</b>';
-								echo implode('', $array);
-							?>
-						</a>
-					</li><!--
-				<?php } endwhile; ?>
-			--></ul>
+			<ul>
+				<?php
+					foreach ($items as $li) { 
+				?>			
+					<li>
+						<a href="<?php echo $li->url; ?>"><?php echo $li->title; ?></a>
+					</li>
+				<?php } ?>
+			</ul>
 		</nav>
-	<?php endif;
-	wp_reset_postdata(); ?>
+	<?php
+		}
+	?>
 </main>

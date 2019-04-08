@@ -5,21 +5,24 @@ aside#posts-list{
 	ul{
 		padding: 0;
 		margin: 0;
-		display: flex;
-		flex-wrap: wrap;
+		display: block;
 		@media all and (min-width: $tablet) {
 			margin: 0 -2rem;
+			display: flex;
+			justify-content: center;
 		}
 
 		li{
 			list-style: none;
+			display: block;
 			width: 100%;
-			margin-bottom: 2rem;
-			vertical-align: top;
-			flex: 1 0 100%;
+			vertical-align: middle;
+			width: 100%;
+			max-width: 400px;
+			margin: 0 auto 2rem auto;
 
 			@media all and (min-width: $tablet) {
-				flex: 1 0 25%;
+				margin: 0 0 2rem 0;
 				padding: 0 2rem;
 			}
 

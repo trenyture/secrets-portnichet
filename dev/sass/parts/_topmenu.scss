@@ -1,8 +1,5 @@
 nav#top-menu{
-	background: $white;
-	@media all and (min-width: $tablet) {
-		background: rgba(0,0,0,0.4);
-	}
+	background: rgba(255,255,255,.4);
 	
 	div.wrapper{
 		display: flex;
@@ -55,6 +52,7 @@ nav#top-menu{
 				pointer-events: all;
 				left :0;
 				opacity: 1;
+				z-index: 1;
 			}
 		
 			@media all and (min-width: $tablet) {
@@ -88,7 +86,7 @@ nav#top-menu{
 					opacity: 0.5;
 					color: $black;
 					font-size: 2rem;
-					font-family: 'Mukta-Light', Arial, sans-serif;
+					font-family: 'Mukta-Regular', Arial, sans-serif;
 					font-weight: 200;
 
 					@media all and (min-width: $tablet) {
