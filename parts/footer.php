@@ -19,7 +19,21 @@
 		<?php
 			}
 		?>
-		<p>Création du site : <a target="_blank" id="str" href="http://simon-tr.com">Simon Trichereau</a></p>
+		<div class="links">
+			<ul id="footer-socials">
+				<li>
+					<a target="_blank" href="https://www.facebook.com/les.secrets.de.pornichet/?modal=admin_todo_tour">
+						<span class="icon-facebook2"></span>
+					</a>
+				</li>
+				<li>
+					<a target="_blank" href="https://www.instagram.com/secrets.de.p.o.r.n.i.c.h.e.t/">
+						<span class="icon-instagram"></span>
+					</a>
+				</li>
+			</ul>		
+			<p>Création du site : <a target="_blank" id="str" href="http://simon-tr.com">Simon Trichereau</a></p>
+		</div>
 	</footer>
 	<?php if (!is_front_page()): ?>
 		</div>

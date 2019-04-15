@@ -36,7 +36,20 @@
 
 			remove_filter( 'the_content', 'wpautop' );
 			remove_filter( 'the_excerpt', 'wpautop' );
+
+			register_sidebar(
+				array(
+					'name'          => __( 'SideBar', 'pornichet' ),
+					'id'            => 'sidebar-1',
+					'description'   => __( 'Add widgets here to appear in your footer.', 'pornichet' ),
+					'before_widget' => '<section id="%1$s" class="widget %2$s">',
+					'after_widget'  => '</section>',
+					'before_title'  => '<h2 class="widget-title">',
+					'after_title'   => '</h2>',
+				)
+			);
 		}
 	endif;
 	add_action( 'after_setup_theme', 'secretsThemeSetup' );
+
 ?>

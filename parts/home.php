@@ -8,19 +8,19 @@
 	<header>
 		<h1 <?php if ($logo && strlen(trim($logo))>0): ?>style="background-image: url(<?php echo $logo; ?>)"<?php endif ?>><?php echo get_bloginfo('name'); ?>
 		</h1>
+		<?php
+			$content = apply_filters( 'get_the_content', get_post( get_option( 'page_on_front' ) )->post_content );
+			if(strlen(trim($content)) > 0) {
+				echo "<div class='slogan'>" . $content . "</div>";
+			}
+		?>
 		<ul id="langs">
-			<?php pll_the_languages(array(
+			<!-- <?php pll_the_languages(array(
 				"show_names" => 0,
 				"show_flags" => 1,
-			));?>
+			));?>  -->
 		</ul>
 	</header>
-	<?php
-		$content = apply_filters( 'get_the_content', get_post( get_option( 'page_on_front' ) )->post_content );
-		if(strlen(trim($content)) > 0) {
-			echo "<main>" . $content . "</main>";
-		}
-	?>
 	<?php 
 		$locations = get_nav_menu_locations();
 		$menu = wp_get_nav_menu_object( $locations['main-menu'] );

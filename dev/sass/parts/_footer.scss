@@ -21,6 +21,10 @@ footer{
 				padding: 0 10px;
 				position: relative;
 
+				a{
+					color:$white;
+				}
+
 				&:after{
 					content: '|';
 					position: absolute;
@@ -36,7 +40,36 @@ footer{
 		}
 	}
 
-	p{
-		margin: 0;
+	div.links{
+		display: flex;
+		justify-content: center;
+		ul#footer-socials{
+			display: flex;
+			margin:0 2rem 0 0;
+			padding:0;
+			
+			li{
+				list-style: none;
+				margin-right: 1rem;
+				a{
+					font-size: 2rem; 
+					color:$white;
+					&:hover{
+						color:$black;
+					}
+				}
+			}
+		}
+
+		p{
+			margin: 0;
+			a{
+				color:$white;
+				&:hover{
+					color:$black;
+				}
+			}
+		}
 	}
+
 }
