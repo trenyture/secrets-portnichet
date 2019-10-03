@@ -39,11 +39,11 @@
 
 			register_sidebar(
 				array(
-					'name'          => __( 'SideBar', 'pornichet' ),
-					'id'            => 'sidebar-1',
+					'name'          => __( 'Footer', 'pornichet' ),
+					'id'            => 'footer',
 					'description'   => __( 'Add widgets here to appear in your footer.', 'pornichet' ),
-					'before_widget' => '<section id="%1$s" class="widget %2$s">',
-					'after_widget'  => '</section>',
+					'before_widget' => '<div id="%1$s" class="widget %2$s">',
+					'after_widget'  => '</div>',
 					'before_title'  => '<h2 class="widget-title">',
 					'after_title'   => '</h2>',
 				)
@@ -51,5 +51,18 @@
 		}
 	endif;
 	add_action( 'after_setup_theme', 'secretsThemeSetup' );
+
+	add_action( 'wp_default_scripts', 'move_jquery_into_footer' );
+
+	function move_jquery_into_footer( $wp_scripts ) {
+
+		if( is_admin() ) {
+			return;
+		}
+
+		$wp_scripts->add_data( 'jquery', 'group', 1 );
+		$wp_scripts->add_data( 'jquery-core', 'group', 1 );
+		$wp_scripts->add_data( 'jquery-migrate', 'group', 1 );
+	}
 
 ?>

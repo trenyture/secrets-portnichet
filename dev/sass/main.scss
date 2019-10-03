@@ -13,17 +13,35 @@ html{
 	body,
 	body.custom-background{
 		font-size: 1.4rem;
-		background-image: url(../images/fond.png);
+		// background-image: url(../images/fond-mobile.jpg);
+		background-image: url(../images/home-fond-mobile.jpg);
 		background-repeat: no-repeat;
-		background-size: cover;
+		background-size: 100% 100%;
 		background-position: top center;
-		background-attachment: fixed;
+		background-attachment: fixed !important;
 		color: $white;
 		font-family: 'Mukta-Regular', Arial, sans-serif;
 		font-size: 2.3rem;
 		line-height: 1.5;
 		margin: 0;
 		overflow-x: hidden;
+
+		@media all and (min-width: $tablet){
+			background-position: top center;
+			background-image: url(../images/home-fond-tablet.jpg);
+		}
+		@media all and (min-width: $desktop){
+			background-image: url(../images/home-fond.jpg);
+		}
+
+		/* @media all and (min-width: $tablet){
+			background-image: url(../images/fond.jpg);
+		} */
+
+		[hidden],
+		.hidden {
+			display: none;
+		}
 
 		& * {
 			box-sizing: border-box;
@@ -74,22 +92,28 @@ html{
 			outline: none;
 		}
 	
+		.wp-block-button{
+			a, button {
+				opacity: 0.8;
+			}
+			a:hover, button:hover {
+				opacity: 1;
+			}
+		}
+
 		@import 'parts/topmenu';
 		@import 'parts/footer';
 
-		&.home{
-			@media all and (min-width: $desktop) {
-				position: relative;
-				height: 90vh;
-			}
-			footer{
-				@media all and (min-width: $desktop) {
-					position: absolute;
-					bottom: 0;
-					left: 0;
-				}
-			}
+		.swal2-title {
+			font-family: "Jakarta", Arial, sans-serif;
+			font-size: 4.5em;
+			margin: 0;
 		}
+		.swal2-content {
+			font-size: 1.6em;
+			line-height: 1.2;
+		}
+
 	}
 }
 
@@ -100,11 +124,36 @@ html{
 @import 'parts/posts';
 @import 'parts/forms';
 
+html body.home{
+	nav#top-menu {
+		div.wrapper {
+			justify-content: flex-end;
+		}
+	}
+}
 
+/*
 html body.blog{
-	background-image: url(../images/fond1.png);
+	background-image: url(../images/fond1-mobile.jpg);
+	@media all and (min-width: $tablet){
+		background-image: url(../images/fond1.jpg);
+	}
 }
 
 html body.page-id-21{
-	background-image: url(../images/fond2.png);
+	background-image: url(../images/fond2-mobile.jpg);
+	@media all and (min-width: $tablet){
+		background-image: url(../images/fond2.jpg);
+	}
 }
+
+html body.home{
+	background-image: url(../images/home-fond-mobile.jpg);
+	@media all and (min-width: $tablet){
+		background-image: url(../images/home-fond-tablet.jpg);
+	}
+	@media all and (min-width: $desktop){
+		background-image: url(../images/home-fond.jpg);
+	}
+}
+*/

@@ -18,6 +18,10 @@
 
 		img{
 			max-width: 100%;
+			height: auto;
+			@media all and (min-width: $tablet){
+				height: inherit;
+			} 
 		}
 
 		.booking-package{
@@ -40,46 +44,65 @@
 			color:black;
 		}
 	}
+}
 
-	.nav-investigators{
-		.wp-block-column:not(:last-child){
+.nav-investigators,
+.nav-missions{
+	.wp-block-column{
+		margin-bottom: 0;
+	}
+	.wp-block-column:not(:last-child){
+		@media all and (min-width: $desktop) {
 			margin-right: 10px;
 		}
-		.wp-block-column:not(:first-child){
+	}
+	.wp-block-column:not(:first-child){
+		@media all and (min-width: $desktop) {
 			margin-left: 10px;
 		}
-		figure{
-			position: relative;
-			transition: all .3s ease-in-out;
-			transform: scale(1);
+	}
+	figure{
+		margin-top: 0;
+		position: relative;
+		transition: all .3s ease-in-out;
+		transform: scale(1);
 
-			&:hover{
-				transform: scale(1.05);
+		&:hover{
+			transform: scale(1.05);
+		}
+
+		a{
+			img{
+				width:100%;
+				height: 225px;
+				vertical-align: top;
+				object-fit: cover;
 			}
+		}		
+		figcaption{
+		    pointer-events: none;
+			position: absolute;
+			top: 50%;
+			left: 0;
+			color: white;
+			width: 100%;
+			font-size: 4rem;
+			margin: 0;
+			text-align: left;
+			padding: 15px;
+			font-family: Aliens;
+			line-height: 1.3;
+			text-align: center;
+			transform: translateY(-50%); 
+		}
+	}
+}
 
-			a{
-				img{
-					width:100%;
-					height: 225px;
-					vertical-align: top;
-					object-fit: cover;
-				}
-			}		
-			figcaption{
-			    pointer-events: none;
-				position: absolute;
-				top: 50%;
-				left: 0;
-				color: white;
-				width: 100%;
-				font-size: 4rem;
-				margin: 0;
-				text-align: left;
-				padding: 15px;
-				font-family: Aliens;
-				line-height: 1.3;
-				text-align: center;
-				transform: translateY(-50%); 
+.nav-missions{
+	figure{
+		a{
+			img{
+				height: 300px;
 			}
 		}
 	}

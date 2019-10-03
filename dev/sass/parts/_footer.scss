@@ -6,6 +6,48 @@ footer{
 	line-height: 2rem;
 	text-align: center;
 
+	.widget_text{
+		color: #fcb900;
+		font-size: 1.3em;
+		ul{
+			padding: 0;
+			margin: 0;
+			list-style: none;
+
+			@media all and (min-width: $tablet){
+				display: flex;
+				justify-content: center;
+			}
+
+			li{
+				margin: 5px 0;
+				list-style: none;
+
+				@media all and (min-width: $tablet){
+					margin: 0;
+					padding: 0 10px;
+					position: relative;
+				}
+
+				&:after{
+					@media all and (min-width: $tablet){
+						content: '|';
+						position: absolute;
+						right:0;
+					}
+				}
+
+				&:nth-last-of-type(1) {
+					&:after{
+						@media all and (min-width: $tablet){
+							display: none;
+						}
+					}					
+				}
+			}
+		}
+	}
+
 	nav{
 		ul{
 			padding:0;
@@ -14,12 +56,17 @@ footer{
 			list-style: none;
 			text-align: center;
 			justify-content:center;
+			flex-flow:wrap;
 
 			li{
 				list-style: none;
-				margin: 10px 0;
+				margin: 0;
 				padding: 0 10px;
 				position: relative;
+
+				@media all and (min-width: $tablet){
+					margin: 10px 0;
+				}
 
 				a{
 					color:$white;
@@ -52,23 +99,22 @@ footer{
 				list-style: none;
 				margin-right: 1rem;
 				a{
-					font-size: 2rem; 
-					color:$white;
-					&:hover{
-						color:$black;
-					}
+					font-size: 2rem;
+					text-decoration: none;
 				}
 			}
 		}
 
-		p{
-			margin: 0;
-			a{
-				color:$white;
-				&:hover{
-					color:$black;
-				}
-			}
+	}
+	
+	p{
+		margin: 0;
+	}
+
+	a{
+		color:$white;
+		&:hover{
+			color:$black;
 		}
 	}
 

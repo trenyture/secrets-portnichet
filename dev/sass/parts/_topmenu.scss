@@ -37,7 +37,7 @@ nav#top-menu{
 		}
 
 		ul#main-menu{
-			position: absolute;
+			position: fixed;
 			top:8rem;
 			opacity: 0;
 			left: 100%;
@@ -49,6 +49,7 @@ nav#top-menu{
 			pointer-events: none;
 
 			&.active{
+				position: absolute;
 				pointer-events: all;
 				left :0;
 				opacity: 1;
@@ -67,6 +68,7 @@ nav#top-menu{
 
 			& > li{
 				&, li{
+					position: relative;
 					list-style: none;
 					text-align: center;
 					background: $white;
@@ -76,7 +78,6 @@ nav#top-menu{
 						background: transparent;
 					}
 				}
-				
 
 				a{
 					display: block;
@@ -124,6 +125,72 @@ nav#top-menu{
 					}
 				}
 				
+				.submenu{
+					margin: 0;
+					padding: 0;
+					@media all and (min-width: $tablet){
+						display: none;
+						position: absolute;
+						top: 100%;
+						right: 0;
+						width: auto;
+						padding-top: 10px;
+						margin-top: -10px;
+						white-space: nowrap;
+						z-index: 10;
+					}
+
+					li{
+						@media all and (min-width: $tablet){
+							margin: 0;
+							padding: 0;
+							line-height: 1;
+							background-color: $yellow;
+						}
+
+						a{
+							font-style: italic;
+							line-height: 1;
+							font-family: "Mukta-Light", Arial, sans-serif;
+							@media all and (min-width: $tablet){
+								font-family: "Mukta-Regular", Arial, sans-serif;
+								font-style: normal;
+								background-color: transparent;
+								line-height: 2rem;
+								text-align: right;
+								padding: 15px 10px;
+								color: $white;
+							}
+							
+							b, strong{
+								font-family: "Mukta-Regular", Arial, sans-serif;
+								@media all and (min-width: $tablet){
+									font-family: "Mukta-Bold", Arial, sans-serif;
+								}
+							}
+
+							&.current{
+								@media all and (min-width: $tablet){
+									color: black;
+								}
+								&:after{
+									@media all and (min-width: $tablet){
+										display:none;
+									}
+								}
+							}
+						}
+					}
+				}
+
+				&:hover{
+					.submenu{
+						@media all and (min-width: $tablet){
+							display: block;
+						}
+					}
+				}
+
 				&#langs{
 					@media all and (min-width: $tablet) {
 						margin-left: 2.5rem;

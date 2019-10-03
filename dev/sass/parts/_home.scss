@@ -1,70 +1,93 @@
 #homepage{
-	header{
-		width: 100%;
-		max-width: $desktop;
-		margin: 0 auto;
-		padding: 0 2rem;
-		display: flex;
-		justify-content:space-between;
-		align-items:center;
 
-		h1{
-			background-image: url(../images/logo-blanc.png);
-			background-repeat: no-repeat;
-			background-position: center;
-			background-size: contain;
-			text-indent: -9999px;
-			display: block;
-			width: 25%;
-			height: 16rem;
-			margin:30px 0;
-			position: relative;
-		}
-
-		div.slogan{
-			line-height: 1;
-			position: relative;
-			top:15px;
-
-			&, & b, & em, & strong, & i{
-				font-family: TopsyKret, Arial, sans-serif;
+	#content{
+		.slogan{
+			margin: 15px 0 50px 0;
+			@media all and (min-width: $tablet) {
+				display: flex;
+				align-items:center;
+				justify-content:space-between;
 			}
-			& em {
-				font-size: 3rem;
+			@media all and (min-width: $desktop) {
+				justify-content:center;
 			}
-		}
 
-		ul#langs {
-			width: 25%;
-			display: flex;
-			justify-content:center;
-			list-style: none;
-			padding: 0;
+			h1{	
+				width: 18rem;
+				height: 15rem;
+				display: block;
+				position: relative;
+				margin: 0 auto 50px auto;
+				@media all and (min-width: $tablet) {
+					margin: 0 0.5rem 0 0;
+				}
+				
+				a{
+					background-image: url(../images/logo-blanc.png);
+					background-repeat: no-repeat;
+					background-position: center center;
+					background-size: contain;
+					text-indent: -9999px;
+					display: block;
+					width: 100%;
+					height: 100%;
+				}
+			}
+			blockquote{
+				margin: 0 10px;
+				font-size: 6rem;
+				color: #004c7e;
+				text-align: center;
+				line-height: .5;
 
-			li{
-				list-style: none;
-				margin: 0 2rem;
-			
-				&.current-lang{
-					opacity:0.6;
-					cursor: not-allowed;
+				@media all and (min-width: $tablet) {
+					font-size: 8rem;
+				}
+				@media all and (min-width: $desktop) {
+					font-size: 10rem;
+				}
 
-					a{
-						pointer-events:none;
-						cursor: not-allowed;
+				&, & b, & em, & strong, & i{
+					font-family: "Jakarta", Arial, sans-serif;
+				}
+				& em {
+					font-size: 3rem;
+					@media all and (min-width: $tablet) {
+						font-size: 4rem;
+					}
+					@media all and (min-width: $desktop) {
+						font-size: 5rem; 
 					}
 				}
+			}
+		}
+		
+		h2{
+			padding: 0 2rem;
+			font-size: 1.4em;
+			@media all and (min-width: $tablet) {
+				font-size: 1.8em;
+			}
+		}
 
-				img{
-					height: 5rem;
-					width: 10rem;
-					object-fit:cover;
+		.blockquote{
+			br{
+				@media all and (min-width: $tablet) {
+					display: none;
 				}
+			}
+		}
 
+		p.quote{
+
+			text-align: center;
+			
+			@media all and (min-width: $tablet) {
+				text-align: left;
 			}
 		}
 	}
-
+	
 	main{
 		display: block;
 		width: 100%;
@@ -77,6 +100,7 @@
 		& em {
 			font-size: 3rem;
 		}
+
 	}
 
 	nav{
